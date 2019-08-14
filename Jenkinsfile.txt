@@ -20,9 +20,7 @@ pipeline {
    }
     post { 
         success { 
-                  dir('SmartRefrigeratorArchive') {
-                      archiveArtifacts '**'
-                  }
+                      archiveArtifacts artifacts: '**', fingerprint: true
         }
     }
  }
