@@ -18,4 +18,15 @@ pipeline {
           }
      }
    }
+    post { 
+        success { 
+            stage('Release') {
+              steps {
+                  dir('SmartRefrigeratorArchive') {
+                      archiveArtifacts artifacts: '**', fingerprint: true
+                  }
+             }
+          }
+        }
+    }
  }
